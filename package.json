@@ -1,0 +1,28 @@
+{
+  "name": "text-it",
+  "version": "1.0.0",
+  "description": "A Realtime chatting web application with users and rooms",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharvin18/text-it.git"
+  },
+  "author": "Sharvin Dedhia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharvin18/text-it/issues"
+  },
+  "homepage": "https://github.com/sharvin18/text-it#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
