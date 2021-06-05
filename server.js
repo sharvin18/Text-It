@@ -24,6 +24,11 @@ io.on('connection', socket => {
 
      // Broadcast message when a user joins
      socket.broadcast.emit('message', 'A user has joined the chat');
+
+     // Listen for chatMessage
+     socket.on('chatMessage', msg => {
+         io.emit('message', msg);
+     });
 });
 
 const PORT =  3000 || process.env.PORT;
