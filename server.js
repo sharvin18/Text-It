@@ -21,7 +21,7 @@ io.on('connection', socket => {
 
      // Runs when a client disconnects
      socket.on('disconnect', () => {
-         io.emit('message', 'A User has left the chat');
+         io.emit('message', formatMessage(botName,'A User has left the chat'));
      });
 
      // Broadcast message when a user joins
@@ -29,7 +29,7 @@ io.on('connection', socket => {
 
      // Listen for chatMessage
      socket.on('chatMessage', msg => {
-         io.emit('message', msg);
+         io.emit('message', formatMessage("USER",msg));
      });
 });
 
