@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
-
+const formatMessage = require('./utils/messages');
 
 const app = express();
 const server = http.createServer(app);
@@ -11,11 +11,13 @@ const io = socketio(server);
 // set static folder
 app.use(express.static(path.join(__dirname, 'public')));    
 
+const botName = "Text-It Bot";
+
 // Run when client will connect
 io.on('connection', socket => {
 
      // Welcome curretn user
-     socket.emit('message', 'Welcome to Text-It!');
+     socket.emit('message', formatMessage(botName,'Welcome to Text-It!'));
 
      // Runs when a client disconnects
      socket.on('disconnect', () => {
@@ -23,7 +25,7 @@ io.on('connection', socket => {
      });
 
      // Broadcast message when a user joins
-     socket.broadcast.emit('message', 'A user has joined the chat');
+     socket.broadcast.emit('message', formatMessage(botName,'A user has joined the chat'));
 
      // Listen for chatMessage
      socket.on('chatMessage', msg => {
